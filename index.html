@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Gerenciador de Sistema — Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside
+            id="sidebar"
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+            <div class="brand">
+                <div
+                    id="brandLogo"
+                    class="brand-logo"
+                    aria-label="Logo da clínica"
+                ></div>
+
+                <div>
+                    <strong
+                        id="brandName"
+                        class="brand-name"
+                    >
+                        Sistema
+                    </strong>
+
+                    <span class="brand-subtitle">
+                        PRO
+                    </span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+                <a
+                    class="nav-link active"
+                    href="index.html"
+                >
+                    <span class="nav-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="4"
+                                y="4"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="14"
+                                y="4"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="4"
+                                y="14"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="14"
+                                y="14"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Dashboard
+                        </strong>
+
+                        <small class="nav-caption">
+                             Visão geral
+                        </small>
+                    </span>
+                </a>
+
+                <a
+                    class="nav-link"
+                    href="pacientes.html"
+                >
+                    <span class="nav-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M6 4H14L18 8V20H6V4Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M14 4V8H18"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M9 13H15M9 16H13"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M4 8V19C4 20.1 4.9 21 6 21"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Cadastro de Pacientes
+                        </strong>
+
+                        <small class="nav-caption">
+                            Pacientes e histórico
+                        </small>
+                    </span>
+                </a>
+
+                <!-- Novo Registro -->
+                <details class="nav-dropdown">
+                    <summary class="nav-link">
+                        <span class="nav-icon">✚</span>
+
+                        <span class="nav-text">
+                            <strong class="nav-title">
+                                Ficha Médica
+                            </strong>
+                        </span>
+
+                        <span
+                            class="nav-dropdown-arrow"
+                            aria-hidden="true"
+                        >
+                            ▾
+                        </span>
+                    </summary>
+
+                    <div class="nav-submenu">
+                        <a
+                            class="nav-submenu-link"
+                            href="fichamedica.html"
+                        >
+                            <span class="nav-submenu-bullet">
+                                •
+                            </span>
+
+                            <span>
+                                Ficha Canídeos
+                            </span>
+                        </a>
+
+                        <a
+                            class="nav-submenu-link"
+                            href="fichamedica-felina.html"
+                        >
+                            <span class="nav-submenu-bullet">
+                                •
+                            </span>
+
+                            <span>
+                                Ficha Felídeos
+                            </span>
+                        </a>
+                    </div>
+                </details>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button
+                    id="logoSettingsButton"
+                    class="nav-link nav-button"
+                    type="button"
+                >
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M6 3H14L18 7V21H6V3Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M14 3V7H18"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M12 16V10M12 10L9.5 12.5M12 10L14.5 12.5"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Logo da Clínica
+                        </strong>
+
+                        <small class="nav-caption">
+                            Imagem e nome
+                        </small>
+                    </span>
+                </button>
+
+                <button
+                    id="logoutButton"
+                    class="nav-link nav-button"
+                    type="button"
+                >
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M10 4H5C4.4 4 4 4.4 4 5V19C4 19.6 4.4 20 5 20H10"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M14 8L18 12L14 16M18 12H9"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Sair
+                        </strong>
+
+                        <small class="nav-caption">
+                            Encerrar sessão
+                        </small>
+                    </span>
+                </button>
+            </div>
+        </aside>
+
+        <div
+            id="overlay"
+            class="overlay"
+            aria-hidden="true"
+        ></div>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button
+                        id="mobileMenuButton"
+                        class="mobile-menu-button"
+                        type="button"
+                        aria-label="Abrir menu"
+                        aria-expanded="false"
+                    >
+                        ☰
+                    </button>
+
+                    <div class="system-status">
+                        <h1>Gestão Clínica</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-user">
+                    <span>Nome Usuario</span>
+
+                    <div
+                        class="topbar-avatar"
+                        aria-label="Usuário Nome Usuario"
+                    >
+                        NU
+                    </div>
+                </div>
+            </header>
+
+            <section class="content dashboard-content">
+
+                <section class="dashboard-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Últimas Ações</h2>
+
+                            <p>
+                                Fichas salvas recentemente
+                            </p>
+                        </div>
+
+                        <span id="actionsCounter">
+                            0 registros
+                        </span>
+                    </div>
+
+                    <div
+                        id="actionsPanel"
+                        class="actions-panel"
+                    >
+                        <p
+                            id="emptyActions"
+                            class="empty-actions"
+                        >
+                            Nenhuma ação realizada ainda.
+                        </p>
+                    </div>
+                </section>
+
+            </section>
+        </main>
+    </div>
+
+    <div id="logoModal" class="modal-backdrop" aria-hidden="true">
+        <div
+            class="modal-card logo-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="logoModalTitle"
+        >
+            <button
+                id="closeLogoModal"
+                class="modal-close"
+                type="button"
+                aria-label="Fechar janela"
+            >
+                ×
+            </button>
+
+            <h2 id="logoModalTitle">Logo da clínica</h2>
+            <p>Altere o nome e a imagem exibidos no sistema.</p>
+
+            <form id="logoForm">
+                <div class="logo-modal-row">
+                    <div class="form-field">
+                        <label for="clinicNameInput">
+                            Nome da clínica
+                        </label>
+
+                        <input
+                            id="clinicNameInput"
+                            type="text"
+                            maxlength="80"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="logoInput">
+                            Imagem da logo
+                        </label>
+
+                        <input
+                            id="logoInput"
+                            type="file"
+                            accept="image/png,image/jpeg,image/svg+xml"
+                        >
+                    </div>
+                </div>
+
+                <div class="logo-preview">
+                    <img
+                        id="logoPreview"
+                        alt="Pré-visualização da logo"
+                    >
+                </div>
+
+                <div class="logo-modal-actions">
+                    <button
+                        id="removeLogoButton"
+                        class="button button-danger-outline"
+                        type="button"
+                    >
+                        Remover imagem
+                    </button>
+
+                    <button
+                        class="button button-primary"
+                        type="submit"
+                    >
+                        Salvar alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

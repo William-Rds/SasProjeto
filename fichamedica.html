@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Gerenciador de Sistema - Ficha Médica</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="medical-page">
+    <div class="app app-without-sidebar">
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <div class="system-status">
+                        <h1>Ficha Médica</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-user">
+                    <span>Nome Usuario</span>
+
+                    <div class="topbar-avatar">
+                        NU
+                    </div>
+                </div>
+            </header>
+
+            <section class="medical-content">
+                <div class="medical-page-heading">
+                    <div>
+                        <p class="eyebrow">
+                            Ficha de Tratamento Cirúrgico
+                        </p>
+
+                        <h2>
+                            Canídeos
+                        </h2>
+                    </div>
+
+                    <div class="medical-toolbar">
+                        <a
+                            class="button button-secondary"
+                            href="index.html"
+                        >
+                            ← Dashboard
+                        </a>
+
+                        <button
+                            id="printMedicalRecordButton"
+                            class="button button-secondary"
+                            type="button"
+                        >
+                            Imprimir ficha
+                        </button>
+
+                        <button
+                            id="saveMedicalRecordButton"
+                            class="button button-primary"
+                            type="button"
+                        >
+                            Salvar ficha
+                        </button>
+                    </div>
+                </div>
+
+                <section class="medical-selection-panel">
+                    <div class="medical-selection-header">
+                        <div>
+                            <h3>Selecionar paciente</h3>
+
+                            <p>
+                                Pesquise um paciente cadastrado
+                                ou faça um cadastro rápido.
+                            </p>
+                        </div>
+
+                        <span
+                            id="medicalRecordStatus"
+                            class="record-status"
+                        >
+                            Nova ficha
+                        </span>
+                    </div>
+
+                    <div class="medical-search-row">
+                        <div class="medical-search-field">
+                            <label for="medicalPatientSearch">
+                                Pesquisar paciente
+                            </label>
+
+                            <input
+                                id="medicalPatientSearch"
+                                type="search"
+                                autocomplete="off"
+                                placeholder="Digite nome, raça ou proprietário"
+                            >
+
+                            <div
+                                id="medicalSearchResults"
+                                class="medical-search-results"
+                            ></div>
+                        </div>
+
+                        <button
+                            id="openQuickPatientButton"
+                            class="button button-secondary"
+                            type="button"
+                        >
+                            + Cadastrar paciente
+                        </button>
+                    </div>
+                </section>
+
+                <form
+                    id="medicalRecordForm"
+                    class="medical-record"
+                >
+                    <header class="medical-record-header">
+                        <div class="medical-record-brand">
+                            
+                             <div
+                                class="medical-record-logo"
+                                id="medicalRecordLogo"
+                            ></div>
+
+                            <div>
+                                <strong
+                                    id="medicalRecordClinicName"
+                                >
+                                    Sistema
+                                </strong>
+
+                                <span>
+                                    Ficha clínica odontológica
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="medical-record-title">
+                            <h1>
+                                Ficha de Tratamento Cirúrgico
+                            </h1>
+
+                            <p>Canídeos</p>
+                        </div>
+
+                        <div class="medical-record-date">
+                            <label for="recordDate">
+                                Data
+                            </label>
+
+                            <input
+                                id="recordDate"
+                                type="date"
+                            >
+                        </div>
+                    </header>
+
+                    <section class="medical-section">
+                        <h2 class="medical-section-title">
+                            Dados do paciente
+                        </h2>
+
+                        <div
+                            id="patientFieldsGrid"
+                            class="medical-fields-grid"
+                        ></div>
+                    </section>
+
+                    <section class="medical-section">
+                        <h2 class="medical-section-title">
+                            Procedimentos realizados
+                        </h2>
+
+                        <div
+                            id="procedureGrid"
+                            class="procedure-grid"
+                        ></div>
+                    </section>
+
+                    <section class="medical-section">
+                        <div class="dental-toolbar">
+                            <div>
+                                <h2 class="medical-section-title">
+                                    Diagrama dental interativo
+                                </h2>
+
+                                <span class="dental-toolbar-label">
+                                    Selecione uma situação:
+                                </span>
+
+                                <div
+                                    id="dentalStatusList"
+                                    class="dental-status-list"
+                                ></div>
+                            </div>
+
+                            <button
+                                id="clearDentalButton"
+                                class="dental-clear-button"
+                                type="button"
+                            >
+                                Limpar marcações
+                            </button>
+                        </div>
+
+                        <p
+                            id="dentalSelectedInfo"
+                            class="dental-selected-info"
+                        >
+                            Selecione uma situação e clique em um dente.
+                        </p>
+
+                        <div class="dental-chart">
+                            <div class="dental-arch-block">
+                                <h3>Maxila</h3>
+
+                                <div
+                                    id="upperDentalArch"
+                                    class="dental-arch"
+                                ></div>
+                            </div>
+
+                            <div class="dental-arch-block">
+                                <div
+                                    id="lowerDentalArch"
+                                    class="dental-arch"
+                                ></div>
+
+                                <h3>Mandíbula</h3>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="medical-section clinical-section">
+                        <h2 class="medical-section-title">
+                            Informações Clínicas
+                        </h2>
+
+                        <div class="clinical-form">
+                            <div class="clinical-line">
+                                <label for="finalDiagnosis">
+                                    Diagnóstico Final:
+                                </label>
+
+                                <textarea
+                                    id="finalDiagnosis"
+                                    name="diagnosis"
+                                    rows="1"
+                                ></textarea>
+                            </div>
+
+                            <div class="clinical-line">
+                                <label for="performedTreatment">
+                                    Tratamento Realizado:
+                                </label>
+
+                                <textarea
+                                    id="performedTreatment"
+                                    name="treatment"
+                                    rows="1"
+                                ></textarea>
+                            </div>
+
+                            <div class="clinical-line clinical-line-split">
+                                <label for="radiology">
+                                    Radiologia:
+                                </label>
+
+                                <input
+                                    id="radiology"
+                                    name="radiology"
+                                    type="text"
+                                >
+
+                                <label for="prescribedMedication">
+                                    Medicação Prescrita:
+                                </label>
+
+                                <input
+                                    id="prescribedMedication"
+                                    name="medication"
+                                    type="text"
+                                >
+                            </div>
+
+                            <div class="clinical-line clinical-line-split">
+                                <label for="feeding">
+                                    Alimentação:
+                                </label>
+
+                                <input
+                                    id="feeding"
+                                    name="feeding"
+                                    type="text"
+                                >
+
+                                <label for="generalRecommendations">
+                                    Recomendações Gerais:
+                                </label>
+
+                                <input
+                                    id="generalRecommendations"
+                                    name="recommendations"
+                                    type="text"
+                                >
+                            </div>
+
+                            <div class="clinical-line">
+                                <label for="generalObservations">
+                                    Observação:
+                                </label>
+
+                                <textarea
+                                    id="generalObservations"
+                                    name="observations"
+                                    rows="1"
+                                ></textarea>
+                            </div>
+
+                            <fieldset class="documentation-line">
+                                <legend>Documentação:</legend>
+
+                                <label class="documentation-option">
+                                    <input
+                                        id="documentationXray"
+                                        name="documentationXray"
+                                        type="checkbox"
+                                    >
+                                    Raio-X
+                                </label>
+
+                                <label class="documentation-option">
+                                    <input
+                                        id="documentationPhoto"
+                                        name="documentationPhoto"
+                                        type="checkbox"
+                                    >
+                                    Fotografia
+                                </label>
+
+                                <label class="documentation-option">
+                                    <input
+                                        id="documentationFilm"
+                                        name="documentationFilm"
+                                        type="checkbox"
+                                    >
+                                    Filmagem
+                                </label>
+                            </fieldset>
+
+                            <div class="clinical-line surgeon-line">
+                                <label for="surgeonName">
+                                    Cirurgião:
+                                </label>
+
+                                <input
+                                    id="surgeonName"
+                                    name="surgeonName"
+                                    type="text"
+                                >
+
+                                <label for="surgeonRegistration">
+                                    Registro profissional:
+                                </label>
+
+                                <input
+                                    id="surgeonRegistration"
+                                    name="surgeonRegistration"
+                                    type="text"
+                                >
+                            </div>
+                        </div>
+                    </section>
+
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div
+        id="quickPatientModal"
+        class="modal-backdrop"
+        aria-hidden="true"
+    >
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h2>Cadastro rápido de paciente</h2>
+                    <p>
+                        Preencha os dados básicos para
+                        selecionar o paciente na ficha.
+                    </p>
+                </div>
+
+                <button
+                    id="closeQuickPatientButton"
+                    class="modal-close"
+                    type="button"
+                    aria-label="Fechar"
+                >
+                    &times;
+                </button>
+            </div>
+
+            <form id="quickPatientForm">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="quickPatientName">
+                            Nome do animal
+                        </label>
+
+                        <input
+                            id="quickPatientName"
+                            name="quickPatientName"
+                            type="text"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="quickPatientBreed">
+                            Raça
+                        </label>
+
+                        <input
+                            id="quickPatientBreed"
+                            name="quickPatientBreed"
+                            type="text"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="quickPatientWeight">
+                            Peso (kg)
+                        </label>
+
+                        <input
+                            id="quickPatientWeight"
+                            name="quickPatientWeight"
+                            type="text"
+                            inputmode="decimal"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="quickPatientAge">
+                            Idade (anos)
+                        </label>
+
+                        <input
+                            id="quickPatientAge"
+                            name="quickPatientAge"
+                            type="text"
+                            inputmode="numeric"
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="quickPatientColor">
+                            Cor
+                        </label>
+
+                        <input
+                            id="quickPatientColor"
+                            name="quickPatientColor"
+                            type="text"
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="quickPatientOwner">
+                            Proprietário
+                        </label>
+
+                        <input
+                            id="quickPatientOwner"
+                            name="quickPatientOwner"
+                            type="text"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button
+                        id="cancelQuickPatientButton"
+                        class="button button-light"
+                        type="button"
+                    >
+                        Fechar
+                    </button>
+
+                    <button
+                        class="button button-primary"
+                        type="submit"
+                    >
+                        Salvar paciente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="Fichamedica.js"></script>
+</body>
+</html>

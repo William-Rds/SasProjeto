@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Gerenciador de Sistema — Pacientes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside
+            id="sidebar"
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+            <div class="brand">
+                <div
+                    id="brandLogo"
+                    class="brand-logo"
+                    aria-label="Logo da clínica"
+                >
+                </div>
+
+                <div>
+                    <strong
+                        id="brandName"
+                        class="brand-name"
+                    >
+                        Sistema
+                    </strong>
+
+                    <span class="brand-subtitle">
+                        PRO
+                    </span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+                <a
+                    class="nav-link"
+                    href="index.html"
+                >
+                    <span class="nav-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="4"
+                                y="4"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="14"
+                                y="4"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="4"
+                                y="14"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <rect
+                                x="14"
+                                y="14"
+                                width="6"
+                                height="6"
+                                rx="1"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Dashboard
+                        </strong>
+
+                        <small class="nav-caption">
+                            Visão geral
+                        </small>
+                    </span>
+                </a>
+<!--
+                <a
+                    class="nav-link active"
+                    href="pacientes.html"
+                >
+                    <span class="nav-icon">
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M6 4H14L18 8V20H6V4Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M14 4V8H18"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M9 13H15M9 16H13"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M4 8V19C4 20.1 4.9 21 6 21"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+                        </svg>
+                    </span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Cadastro de Pacientes
+                        </strong>
+
+                        <small class="nav-caption">
+                            Pacientes e histórico
+                        </small>
+                    </span>
+                </a>
+            
+                <a
+                    class="nav-link"
+                    href="fichamedica.html"
+                >
+                    <span class="nav-icon">✚</span>
+
+                    <span class="nav-text">
+                        <strong class="nav-title">
+                            Novo Registro
+                        </strong>
+
+                        <small class="nav-caption">
+                            Ficha médica
+                        </small>
+                    </span>
+                </a>
+                -->
+            </nav>
+        </aside>
+
+        <div
+            id="overlay"
+            class="overlay"
+        ></div>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button
+                        id="mobileMenuButton"
+                        class="mobile-menu-button"
+                        type="button"
+                        aria-label="Abrir menu"
+                        aria-expanded="false"
+                    >
+                        ☰
+                    </button>
+
+                    <div class="system-status">
+                        <h1>Gestão Clínica</h1>
+                    </div>
+                </div>
+
+                <div class="topbar-user">
+                    <span>Nome Usuario</span>
+
+                    <div class="topbar-avatar">
+                        NU
+                    </div>
+                </div>
+            </header>
+
+            <section class="patients-content">
+                <div class="patients-header">
+                    <div>
+                        <p class="eyebrow">
+                            Cadastro de Pacientes
+                        </p>
+
+                        <h2>
+                            Gerenciamento de Pacientes
+                        </h2>
+
+                        <p>
+                            Consulte, edite e gerencie os pacientes
+                            cadastrados.
+                        </p>
+                    </div>
+
+                    <!--<a
+                        class="button button-secondary"
+                        href="index.html"
+                    >
+                        ← Voltar ao Dashboard
+                    </a>-->
+                </div>
+
+                <section class="patients-panel">
+                    <div class="patients-toolbar">
+                        <div class="search-box">
+                            <span aria-hidden="true">⌕</span>
+
+                            <label
+                                class="visually-hidden"
+                                for="patientSearch"
+                            >
+                                Pesquisar paciente
+                            </label>
+
+                            <input
+                                id="patientSearch"
+                                type="search"
+                                placeholder="Pesquisar paciente"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <span
+                            id="patientsCounter"
+                            class="patients-counter"
+                        >
+                            0 pacientes
+                        </span>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="patients-table">
+                            <caption class="visually-hidden">
+                                Lista de pacientes cadastrados
+                            </caption>
+
+                            <thead>
+                                <tr>
+                                    <th>Paciente</th>
+                                    <th>Raça</th>
+                                    <th>Peso</th>
+                                    <th>Proprietário</th>
+                                    <th class="actions-column">
+                                        Ações
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="patientsTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div
+                        id="patientsEmptyState"
+                        class="empty-table-state"
+                    >
+                        Nenhum paciente cadastrado.
+                    </div>
+
+                    <div class="patients-footer">
+                        <div
+                            id="patientsPagination"
+                            class="pagination"
+                        ></div>
+
+                        <button
+                            id="addPatientButton"
+                            class="button button-primary"
+                            type="button"
+                        >
+                            + Adicionar Novo Paciente
+                        </button>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div
+        id="patientModal"
+        class="modal-backdrop"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-card patient-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="patientModalTitle"
+        >
+            <div class="modal-header">
+                <div>
+                    <h2 id="patientModalTitle">
+                        Novo Paciente
+                    </h2>
+
+                    <p>
+                        Preencha os dados básicos do paciente.
+                    </p>
+                </div>
+
+                <button
+                    id="closePatientModal"
+                    class="modal-close"
+                    type="button"
+                    aria-label="Fechar janela"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="patientForm">
+                <input
+                    id="patientId"
+                    type="hidden"
+                >
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="patientName">
+                            Nome do animal
+                        </label>
+
+                        <input
+                            id="patientName"
+                            type="text"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="patientBreed">
+                            Raça
+                        </label>
+
+                        <input
+                            id="patientBreed"
+                            type="text"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="patientWeight">
+                            Peso (kg)
+                        </label>
+
+                        <input
+                            id="patientWeight"
+                            type="text"
+                            inputmode="decimal"
+                            placeholder="Ex.: 12,5"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="patientAge">
+                            Idade (anos)
+                        </label>
+
+                        <input
+                            id="patientAge"
+                            type="text"
+                            inputmode="numeric"
+                            placeholder="Opcional"
+                        >
+                    </div>
+
+                    <div class="form-field form-field-full">
+                        <label for="patientOwner">
+                            Proprietário
+                        </label>
+
+                        <input
+                            id="patientOwner"
+                            type="text"
+                            maxlength="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field form-field-full">
+                        <label for="patientObservations">
+                            Observações
+                        </label>
+
+                        <textarea
+                            id="patientObservations"
+                            maxlength="1000"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button
+                        id="cancelPatientButton"
+                        class="button button-light"
+                        type="button"
+                    >
+                        Fechar
+                    </button>
+
+                    <button
+                        class="button button-primary"
+                        type="submit"
+                    >
+                        Salvar paciente
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="pacientes.js"></script>
+</body>
+</html>
